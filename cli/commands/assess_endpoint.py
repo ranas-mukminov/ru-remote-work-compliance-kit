@@ -4,6 +4,7 @@ import platform
 import subprocess
 import sys
 from pathlib import Path
+from typing import Optional
 
 app = typer.Typer()
 

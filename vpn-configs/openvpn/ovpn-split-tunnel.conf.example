@@ -1,0 +1,23 @@
+client
+dev tun
+proto udp
+remote vpn.example.com 1194
+resolv-retry infinite
+nobind
+
+ca ca.crt
+cert client.crt
+key client.key
+remote-cert-tls server
+
+cipher AES-256-GCM
+auth SHA256
+
+# Отключаем перенаправление шлюза по умолчанию
+# redirect-gateway def1  <-- ЗАКОММЕНТИРОВАНО
+
+# Маршруты пушатся сервером, но можно добавить и на клиенте:
+# route 10.0.0.0 255.0.0.0
+# route 172.16.0.0 255.240.0.0
+
+verb 3

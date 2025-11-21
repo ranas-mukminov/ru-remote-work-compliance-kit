@@ -1,0 +1,13 @@
+[Interface]
+PrivateKey = <CLIENT_PRIVATE_KEY>
+Address = 10.100.0.3/32
+# DNS можно оставить локальным или использовать корпоративный, если он доступен через туннель
+DNS = 10.100.0.1
+
+[Peer]
+PublicKey = <SERVER_PUBLIC_KEY>
+Endpoint = vpn.example.com:51820
+# Указываем только внутренние подсети компании.
+# Остальной трафик (YouTube, соцсети) пойдет напрямую через провайдера сотрудника.
+AllowedIPs = 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
+PersistentKeepalive = 25

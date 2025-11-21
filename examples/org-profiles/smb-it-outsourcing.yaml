@@ -1,0 +1,9 @@
+org_name: "IT-Support LLC"
+industry: "IT Services"
+employees_count: 45
+has_pdn: true
+has_critical_infrastructure: false
+remote_mode:
+  mode: "fully_remote"
+  remote_percentage: 90
+  allow_byod: true

@@ -1,0 +1,26 @@
+client
+dev tun
+proto udp
+remote vpn.example.com 1194
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+
+# Сертификаты (в реальном конфиге лучше использовать inline <ca>...</ca>)
+ca ca.crt
+cert client.crt
+key client.key
+remote-cert-tls server
+
+# Шифрование (современные стандарты)
+cipher AES-256-GCM
+auth SHA256
+
+# Сжатие (лучше отключить для безопасности - VORACLE attack)
+comp-lzo no
+
+# Маршрутизация всего трафика через VPN
+redirect-gateway def1
+
+verb 3

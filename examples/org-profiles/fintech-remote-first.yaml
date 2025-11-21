@@ -1,0 +1,9 @@
+org_name: "NeoBank Tech"
+industry: "Fintech"
+employees_count: 150
+has_pdn: true
+has_critical_infrastructure: true
+remote_mode:
+  mode: "hybrid"
+  remote_percentage: 60
+  allow_byod: false

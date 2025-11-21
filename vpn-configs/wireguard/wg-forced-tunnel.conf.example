@@ -1,0 +1,15 @@
+[Interface]
+# PrivateKey клиента. Генерируется командой `wg genkey`
+PrivateKey = <CLIENT_PRIVATE_KEY>
+Address = 10.100.0.2/32
+DNS = 10.100.0.1
+
+[Peer]
+# PublicKey сервера
+PublicKey = <SERVER_PUBLIC_KEY>
+# Внешний IP адрес VPN-сервера
+Endpoint = vpn.example.com:51820
+# 0.0.0.0/0, ::/0 означает, что ВЕСЬ трафик пойдет через VPN (Forced Tunnel)
+AllowedIPs = 0.0.0.0/0, ::/0
+# Поддерживать соединение активным (NAT keepalive)
+PersistentKeepalive = 25
