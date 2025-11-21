@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ru-remote-work-compliance-kit"
+version = "0.1.0"
+description = "Compliance kit for remote work in Russia (152-FZ, etc.)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "run-as-daemon.ru", email = "info@run-as-daemon.ru"}
+]
+dependencies = [
+    "typer",
+    "pyyaml",
+    "pydantic>=2.0",
+    "jinja2"
+]
+
+[project.scripts]
+ru-remote-kit = "cli.main:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ai/src*", "cli*"]
+namespaces = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "ai/src"]
