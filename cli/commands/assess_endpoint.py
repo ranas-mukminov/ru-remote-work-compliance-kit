@@ -1,12 +1,13 @@
 import typer
 import json
 import platform
-import subprocess
-import sys
+
 from pathlib import Path
 from typing import Optional
 
 app = typer.Typer()
+
+
 
 def run_assessment_script(os_type: str) -> dict:
     # This is a placeholder. In real implementation, it would call the shell/ps1 scripts.
@@ -17,9 +18,9 @@ def run_assessment_script(os_type: str) -> dict:
     if os_type == "Linux":
         script = script_path / "check_linux.sh"
         if script.exists():
-             # In a real scenario we would execute it. 
-             # For safety in this environment, we might just return a stub if not actually running on a target.
-             pass
+            # In a real scenario we would execute it.
+            # For safety in this environment, we might just return a stub if not actually running on a target.
+            pass
     
     return {
         "os": os_type,
@@ -29,6 +30,8 @@ def run_assessment_script(os_type: str) -> dict:
             "firewall": "unknown"
         }
     }
+
+
 
 @app.callback(invoke_without_command=True)
 def main(

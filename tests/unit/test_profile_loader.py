@@ -1,7 +1,9 @@
 import pytest
 import yaml
 from remote_work_ai_helper.profile_loader import load_profile
-from remote_work_ai_helper.models import OrgProfile, RemoteMode
+from remote_work_ai_helper.models import OrgProfile
+
+
 
 def test_load_profile_valid(tmp_path):
     profile_data = {
@@ -28,6 +30,8 @@ def test_load_profile_valid(tmp_path):
     assert profile.remote_mode.mode == "hybrid"
     assert profile.remote_mode.allow_byod is True
 
+
+
 def test_load_profile_invalid(tmp_path):
     # Missing required field
     profile_data = {
@@ -40,6 +44,8 @@ def test_load_profile_invalid(tmp_path):
         
     with pytest.raises(ValueError):
         load_profile(str(p))
+
+
 
 def test_load_profile_file_not_found():
     with pytest.raises(FileNotFoundError):

@@ -1,9 +1,5 @@
 import typer
-import sys
-import json
-import yaml
-from pathlib import Path
-from typing import Optional
+
 from remote_work_ai_helper.profile_loader import load_profile
 from remote_work_ai_helper.risk_engine import RiskEngine
 from remote_work_ai_helper.policy_generator import PolicyGenerator
@@ -12,6 +8,8 @@ from cli.commands import assess_endpoint
 app = typer.Typer()
 
 app.add_typer(assess_endpoint.app, name="assess-endpoint")
+
+
 
 @app.command()
 def generate_policy(
@@ -38,6 +36,8 @@ def generate_policy(
         typer.echo(f"Error generating policy: {e}", err=True)
         raise typer.Exit(code=1)
 
+
+
 @app.command()
 def generate_risk_list(
     profile: str = typer.Option(..., help="Path to organization profile (YAML/JSON)")
@@ -58,6 +58,8 @@ def generate_risk_list(
     except Exception as e:
         typer.echo(f"Error generating risk list: {e}", err=True)
         raise typer.Exit(code=1)
+
+
 
 if __name__ == "__main__":
     app()

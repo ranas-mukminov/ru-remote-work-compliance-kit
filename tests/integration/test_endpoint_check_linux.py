@@ -6,6 +6,8 @@ from pathlib import Path
 
 SCRIPT_PATH = Path(__file__).parents[2] / "scripts" / "endpoints" / "check_linux.sh"
 
+
+
 @pytest.mark.skipif(not os.path.exists(SCRIPT_PATH), reason="Script not found")
 def test_check_linux_script_output_structure():
     # Ensure the script is executable

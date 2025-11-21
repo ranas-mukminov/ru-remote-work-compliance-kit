@@ -1,6 +1,8 @@
 from typing import List
 from .models import OrgProfile, RiskItem
 
+
+
 class RiskEngine:
     def assess_risks(self, profile: OrgProfile) -> List[RiskItem]:
         risks = []
@@ -36,7 +38,7 @@ class RiskEngine:
             
         # 3. General Remote Access
         if profile.remote_mode.mode in ["fully_remote", "hybrid"]:
-             risks.append(RiskItem(
+            risks.append(RiskItem(
                 risk_description="Перехват трафика при работе из публичных сетей",
                 probability="medium",
                 impact="medium",

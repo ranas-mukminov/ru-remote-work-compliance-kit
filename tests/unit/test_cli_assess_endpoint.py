@@ -1,13 +1,17 @@
-import pytest
+
 from typer.testing import CliRunner
 from cli.main import app
 
 runner = CliRunner()
 
+
+
 def test_assess_endpoint_help():
     result = runner.invoke(app, ["assess-endpoint", "--help"])
     assert result.exit_code == 0
     assert "assess-endpoint" in result.stdout
+
+
 
 # We will mock the actual script execution in the implementation
 def test_assess_endpoint_mocked(mocker):

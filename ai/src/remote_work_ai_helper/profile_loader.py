@@ -3,6 +3,8 @@ import json
 from pathlib import Path
 from .models import OrgProfile
 
+
+
 def load_profile(file_path: str) -> OrgProfile:
     path = Path(file_path)
     if not path.exists():
